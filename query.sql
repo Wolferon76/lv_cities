@@ -20,13 +20,14 @@
 -- 10. Atlasīt kopēju iedzīvotāji skaitu pēc novadiem (GROUP BY, COUNT)
 
 -- INIT database
+-- 1. uzd.
 CREATE TABLE lv_cities (
   Title VARCHAR(100) NOT NULL,
   Year INTEGER  NOT NULL,
   Population INTEGER  NOT NULL,
   Region VARCHAR(100) NOT NULL
 );
-  
+-- 2. uzd.
 INSERT INTO lv_cities(title, year, population, region) VALUES('Ādaži', 2022, 7482, 'Ādažu novads')
 ,('Ainaži', 1926, 701, 'Limbažu novads')
 ,('Aizkraukle', 1967, 7198, 'Aizkraukles novads')
@@ -110,12 +111,20 @@ INSERT INTO lv_cities(title, year, population, region) VALUES('Ādaži', 2022, 7
 ,('Zilupe', 1931, 1369, 'Ludzas novads');
 
 SELECT * FROM lv_cities;
+-- 3. uzd.
 SELECT Title,Region FROM lv_cities;
+-- 4. uzd.
 SELECT * FROM lv_cities WHERE Year < 1924;
+-- 5. uzd.
 SELECT * FROM lv_cities WHERE Population <= 3501;
+-- 6. uzd.
 SELECT * FROM lv_cities ORDER BY Population DESC LIMIT 10;
+-- 7. uzd.
 SELECT COUNT(Title)FROM lv_cities;
+-- 8. uzd.
 SELECT DISTINCT Region FROM lv_cities;
+-- 9. uzd.
 DELETE FROM lv_cities WHERE Title='Durbe';
 SELECT * FROM lv_cities;
+-- 10. uzd.
 SELECT SUM(Population),Region FROM lv_cities GROUP BY Region;
